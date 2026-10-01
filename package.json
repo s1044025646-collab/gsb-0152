@@ -1,0 +1,31 @@
+{
+  "name": "poly-root-isolation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Rational-coefficient polynomial real-root isolation and signed interval analysis backend (exact arithmetic, Sturm-based).",
+  "bin": {
+    "polyctl": "dist/cli/cli.js",
+    "polyserve": "dist/api/server.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node --experimental-sqlite dist/api/server.js",
+    "serve": "node --experimental-sqlite dist/api/server.js",
+    "cli": "node --experimental-sqlite dist/cli/cli.js",
+    "test": "node --experimental-sqlite --import tsx --test test/*.test.ts",
+    "demo": "node --experimental-sqlite --import tsx scripts/demo.ts",
+    "fixtures": "node --experimental-sqlite --import tsx src/generator/index.ts",
+    "stop": "node scripts/stop.mjs",
+    "clean": "node scripts/clean.mjs",
+    "typecheck": "tsc -p tsconfig.test.json"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
